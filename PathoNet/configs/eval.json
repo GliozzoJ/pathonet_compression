@@ -1,0 +1,31 @@
+{
+    "imageShape": [
+        1228,
+        1228,
+        3
+    ],
+    "inputShape": [
+        256,
+        256,
+        3
+    ],
+    "pretrainedModel": "./original_nets/PathoNet.hdf5",
+    "classes": 3,
+    "model": "PathoNet",
+    "logPath": "logs/",
+    "data_path": "",
+    "loss": "",
+    "optimizer": "",
+    "lr": "",
+    "batchSize": 0,
+    "epoches": 0,
+    "validationSplit": 0,
+    "trainDataPath": "",
+    "thresholds": [
+        60,
+        55,
+        40
+    ],
+    "guaMaxValue": 255,
+    "minDistance": 5
+}

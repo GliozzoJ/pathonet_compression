@@ -1,0 +1,10 @@
+preprocessed_data/Test/
+preprocessed_data/Train/
+preprocessed_data/train_split/
+preprocessed_data/Val/
+preprocessed_data/val_split/
+SHIDC-B-Ki-67/Test/
+SHIDC-B-Ki-67/Train/
+SHIDC-B-Ki-67/notes.txt
+SHIDC-B-Ki-67/SHIDC-B-Ki-67_V1.0.zip
+run_time-space_eval.sh
