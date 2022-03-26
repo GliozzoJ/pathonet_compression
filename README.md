@@ -7,7 +7,7 @@ This repository contains the code to:
 
 - Reproduce the experiments comparing the original PathoNet model with our compressed models, which are described in detail in a paper submitted to the journal "Computers in Biology and Medicine" [3];
 
-- A Jupyter notebook showing (I) how to create and load compressed models using the "Index Map"  method [4] and (II) how to compute the compression ratios and time ratios and for a given quantized network.
+- A Jupyter notebook showing (I) how to create and load compressed models using the "Index Map"  method [4] and (II) how to compute the compression ratios and time ratios for a given quantized network.
 
 
 Moreover, we provide our best compressed PathoNet models using *k*=256 which can be exploited by an interested user having limited computational resources available.
@@ -25,10 +25,11 @@ Moreover, we provide our best compressed PathoNet models using *k*=256 which can
   source /path/to/new/virtual/environment/bin/activate
   ```
 
-  If you want to easily activate the environment, you can add a permanent 
+  If you want to activate the environment easily, you can add a permanent 
   alias to your `.bashrc`:
   
   ```
+  # open file .bashrc
   gedit ~/.bashrc
   ```
 
@@ -46,7 +47,7 @@ Moreover, we provide our best compressed PathoNet models using *k*=256 which can
   Then compile the megaDot as explained [here](https://github.com/AnacletoLAB/sHAM#compiling-megadot).
 
 
-* Then, with the environment active, clone this repository in the indicated position inside the sHAM package and install the required depedencies:
+* With the environment active, clone this repository in the indicated position inside the sHAM package and install the required depedencies:
 
   ```
   cd ./experiments/performance_eval
@@ -73,7 +74,7 @@ Train
 
 ### PathoNet pre-trained model (not compressed)
 
-The PathoNet pre-trained model (not compressed) is available in the folder `original_nets` o it can be downloaded from the original [PathoNet github repository](https://github.com/SHIDCenter/PathoNet/blob/master/README.md#pretrained-models). In the latter case, please copy the downloaded model in the folder `original_nets`.
+The PathoNet pre-trained model (not compressed) is available in the folder `original_nets` or it can be downloaded from the original [PathoNet github repository](https://github.com/SHIDCenter/PathoNet/blob/master/README.md#pretrained-models). In the latter case, please copy the downloaded model in the folder `original_nets`.
 
 
 ### Quantized PathoNet models (*k*=256)
@@ -95,7 +96,7 @@ The newly created training and validation sets are saved in the folder `./prepro
 
 ### Data preprocessing
 
-To perform the data preprocessing which computes the data augmentation step for training data and the density maps (Gaussian labels) for training, validation and test data, run:
+To run the data preprocessing which performs data augmentation on the training set and the density maps (Gaussian labels) for training, validation and test data, call:
 
 ```
 mkdir ./preprocessed_data/Train
@@ -141,18 +142,20 @@ To reproduce our results we provide the following scripts/functions:
 
 1. **pathonet_compressed_k256.py**
 
-	This script performsthe quantization of the PathoNet model using the hyper-parameters set at [line 46](https://github.com/GliozzoJ/pathonet_compression/blob/284d503da1bb7fe6cae6bf5247c94ed05422a9d2/pathonet_compressed_k256.py#L46). We used this script to quantize a model with *k=256* and the best hyper-parameters previously obtained by grid search. By default, the hyper-parameters used in the experiment with quantization method UQ are set, but you can uncomment lines [50](https://github.com/GliozzoJ/pathonet_compression/blob/284d503da1bb7fe6cae6bf5247c94ed05422a9d2/pathonet_compressed_k256.py#L50), [55](https://github.com/GliozzoJ/pathonet_compression/blob/284d503da1bb7fe6cae6bf5247c94ed05422a9d2/pathonet_compressed_k256.py#L55) or [60](https://github.com/GliozzoJ/pathonet_compression/blob/284d503da1bb7fe6cae6bf5247c94ed05422a9d2/pathonet_compressed_k256.py#L60) to reproduce the experiment using another compression approach.
+	This script performs the quantization of the PathoNet model using the hyper-parameters set at [line 46](https://github.com/GliozzoJ/pathonet_compression/blob/284d503da1bb7fe6cae6bf5247c94ed05422a9d2/pathonet_compressed_k256.py#L46). We used this script to quantize a model with *k=256* and the best hyper-parameters previously obtained by grid search. By default, the hyper-parameters used in the experiment with quantization method UQ are set, but you can uncomment lines [50](https://github.com/GliozzoJ/pathonet_compression/blob/284d503da1bb7fe6cae6bf5247c94ed05422a9d2/pathonet_compressed_k256.py#L50), [55](https://github.com/GliozzoJ/pathonet_compression/blob/284d503da1bb7fe6cae6bf5247c94ed05422a9d2/pathonet_compressed_k256.py#L55) or [60](https://github.com/GliozzoJ/pathonet_compression/blob/284d503da1bb7fe6cae6bf5247c94ed05422a9d2/pathonet_compressed_k256.py#L60) to reproduce the experiment using another compression approach.
 	You can run the script in background with the following command:
 	
 	```
 	nohup python3 pathonet_compressed_k256.py > output.log &
 	```
 
-	which saves the results in the folder `./pathonet_compressed_models/results` and a text 	log file in the current working directory. In particular, the  script saves:
+	which saves the results in the folder `./pathonet_compressed_models/results` and a text log file in the current working directory. In particular, the script saves:
 	- the quantized model (using three different saving methods); 
 	- a csv file with the hyper-parameters used to obtain the quantized model and the Precision, Recall and F1-score for Ki67 and TIL (divided in Ki67-positive and Ki67-negative),
 	- a pickle file which content is identical to the previous one;
 	- two .npz objects containing the MSE (Mean Squared Error) values obtained before quantization, after quantization and after the re-training phase of the best model (one .npz file for the training set and one for the test set).
+	
+	Of note, this script can be used to perform experiments with other hyper-parameter choices by changing the values in dictionary "exps" at [line 46](https://github.com/GliozzoJ/pathonet_compression/blob/284d503da1bb7fe6cae6bf5247c94ed05422a9d2/pathonet_compressed_k256.py#L46) with different ones.
 	
 2. **run_rmse_acc.py**
 
@@ -163,6 +166,7 @@ To reproduce our results we provide the following scripts/functions:
 	```
 	
 	The outputs are a csv and a pickle file containing the above-mentioned metrics for each tested model.
+	Just change the quantized model to evaluate in the list at [line 25](https://github.com/GliozzoJ/pathonet_compression/blob/289dcca28102db1a45dc9564923c18359ffd85ef/run_rmse_acc.py#L25) (putting them in `./pathonet_compression/pathonet_compressed_models/experiments/*new_model*`) to evaluate another quantized PathoNet network obtained with the function `compression.py` or the script `pathonet_compressed_k256.py`.
 
 3. **time_space_eval_pathonet.py**
 
