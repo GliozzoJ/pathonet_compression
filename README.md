@@ -166,7 +166,7 @@ To reproduce our results we provide the following scripts/functions:
 	```
 	
 	The outputs are a csv and a pickle file containing the above-mentioned metrics for each tested model.
-	Just change the quantized model to evaluate in the list at [line 25](https://github.com/GliozzoJ/pathonet_compression/blob/289dcca28102db1a45dc9564923c18359ffd85ef/run_rmse_acc.py#L25) (putting them in `./pathonet_compression/pathonet_compressed_models/experiments/*new_model*`) to evaluate another quantized PathoNet network obtained with the function `compression.py` or the script `pathonet_compressed_k256.py`.
+	Just change the quantized models in the list at [line 25](https://github.com/GliozzoJ/pathonet_compression/blob/289dcca28102db1a45dc9564923c18359ffd85ef/run_rmse_acc.py#L25) (putting them in `./pathonet_compression/pathonet_compressed_models/experiments/*new_model*`) to evaluate another quantized PathoNet network obtained with the function `compression.py` or the script `pathonet_compressed_k256.py`.
 
 3. **time_space_eval_pathonet.py**
 
