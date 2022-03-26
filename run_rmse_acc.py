@@ -23,10 +23,10 @@ random.seed(SEED)
 # Change the paths listed in "list_comprNets" to evaluate other compressed networks (leave the first item
 # as it is)
 list_comprNets=["./original_nets/PathoNet.hdf5",
-"./pathonet_compression/pathonet_compressed_models/experiments/CWS_k256/0-0-0-256-0.0001-1e-05-5-75-147.1456_save_weights.h5",
-"./pathonet_compression/pathonet_compressed_models/experiments/PWS_k256/0-0-0-256-0.0001-0.0001-5-75-159.29054_save_weights.h5",
-"./pathonet_compression/pathonet_compressed_models/experiments/ECSQ_k256/0-0-0-256-0.0001-1e-05-5-75-152.7148_save_weights.h5", 
-"./pathonet_compression/pathonet_compressed_models/experiments/UQ_k256/0-0-0-249-0.0001-0.0001-5-75-146.19026_save_weights.h5"]
+"./pathonet_compressed_models/experiments/CWS_k256/0-0-0-256-0.0001-1e-05-5-75-147.1456_save_weights.h5",
+"./pathonet_compressed_models/experiments/PWS_k256/0-0-0-256-0.0001-0.0001-5-75-159.29054_save_weights.h5",
+"./pathonet_compressed_models/experiments/ECSQ_k256/0-0-0-256-0.0001-1e-05-5-75-152.7148_save_weights.h5", 
+"./pathonet_compressed_models/experiments/UQ_k256/0-0-0-249-0.0001-0.0001-5-75-146.19026_save_weights.h5"]
 
 
 # Paths
@@ -49,7 +49,7 @@ for i,p in enumerate(list_comprNets):
         res = res.append({"exp":"Original", "rmse_ki67":rmse_ki67, "rmse_TIL":rmse_TIL, "acc_ki67_pt":acc_ki67_pt, 
                           "acc_TIL_pt":acc_TIL_pt}, ignore_index=True)
     else:
-        res = res.append({"exp":p.split("/")[6], "rmse_ki67":rmse_ki67, "rmse_TIL":rmse_TIL, "acc_ki67_pt":acc_ki67_pt, 
+        res = res.append({"exp":p.split("/")[3], "rmse_ki67":rmse_ki67, "rmse_TIL":rmse_TIL, "acc_ki67_pt":acc_ki67_pt, 
                           "acc_TIL_pt":acc_TIL_pt}, ignore_index=True)
 
 # Save results
