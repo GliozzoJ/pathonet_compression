@@ -44,8 +44,6 @@ Moreover, we provide our best compressed PathoNet models using *k*=256 which can
   cd sHAM
   pip install ./sHAM_package
   ```
-  Then compile the megaDot as explained [here](https://github.com/AnacletoLAB/sHAM#compiling-megadot).
-
 
 * With the environment active, clone this repository in the indicated position inside the sHAM package and install the required depedencies:
 
@@ -74,7 +72,7 @@ Train
 
 ### PathoNet pre-trained model (not compressed)
 
-The PathoNet pre-trained model (not compressed) is available in the folder `original_nets` or it can be downloaded from the original [PathoNet github repository](https://github.com/SHIDCenter/PathoNet/blob/master/README.md#pretrained-models). In the latter case, please copy the downloaded model in the folder `original_nets`.
+The PathoNet pre-trained model (not compressed) is available in the folder `original_nets` or it can be downloaded from the original [PathoNet github repository](https://github.com/SHIDCenter/PathoNet/blob/master/README.md#pretrained-models) using this [Google Drive link](https://drive.google.com/file/d/13M6WpBsY_XtIKev_A6EK_Cj2LuBySM3K/view). In the latter case, please copy the downloaded model in the folder `original_nets`.
 
 
 ### Quantized PathoNet models (*k*=256)
