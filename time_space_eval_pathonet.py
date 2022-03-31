@@ -285,11 +285,11 @@ def main(compression, net, testset, compr_weights):
     model.set_weights(lw)
     
     space_original, space_compressed = space_calc(model)
-    space_ratio = round(space_compressed/space_original, 3)
+    space_ratio = round((space_compressed/space_original)**(-1), 3)
     
     data = [testset+"/"+f for f in os.listdir(testset) if '.jpg' in f]
     original, quant = product_time(model, data)
-    time_ratio = round(quant/original, 3)
+    time_ratio = round((quant/original)**(-1), 3)
     
     #create PathoNet with iMap
     res_weights, last_bias, indexes_weights, vect_centers = utils_for_Patho_iMap(model)
