@@ -45,7 +45,7 @@ Moreover, we provide our best compressed PathoNet models using *k*=256 which can
   pip install ./sHAM_package
   ```
 
-* With the environment active, clone this repository in the indicated position inside the sHAM package and install the required depedencies:
+* With the environment active, clone this repository in the folder ``./sHAM/experiments/performance_eval`` inside the sHAM package and install the required depedencies:
 
   ```
   cd ./experiments/performance_eval
@@ -199,6 +199,31 @@ To reproduce our results we provide the following scripts/functions:
 
 
 4. We also provide a Jupyter notebook `Run_PathoNet_iMap.ipynb` showing how to compute the compression and time ratio for a given quantized network. Moreover, it shows how to create a compressed PathoNet model using the IndexMap method and how to load it.
+
+### Compression on a different model and/or dataset
+
+As a matter of fact, the compression strategy we adopted in the use case presented in this repository can be applied to any pre-trained model having convolutional layers and/or dense layers.
+An interested user can run the compression framework on an hypothetical network called ``mynet.hdf5`` following this steps:
+
+1. The considered model has to be trained and saved using TensorFlow tf.keras.model.save('mynet.h5') 
+2. You need to add a new function to the script ``datasets.py`` able to give as output (a) an object ``tf.data.Dataset`` related to the training set and (b) a series of numpy arrays for training, validation and test set (i.e.  x_train, y_train, x_val, y_val, x_test, y_test)
+3. Import your new function in the script ``compression.py`` changing [line 9](https://github.com/GliozzoJ/pathonet_compression/blob/565f6a04c9fa2ae3911f469ab885fefa65ca5841/compression.py#L9) as below:
+
+	```
+	from datasets import <new_function_name>
+	```
+
+	Moreover, change [lines 60](https://github.com/GliozzoJ/pathonet_compression/blob/565f6a04c9fa2ae3911f469ab885fefa65ca5841/compression.py#L60) and [67](https://github.com/GliozzoJ/pathonet_compression/blob/565f6a04c9fa2ae3911f469ab885fefa65ca5841/compression.py#L67) substituting ``SHIDC_B_Ki67`` with your ``new_function_name``.
+4. Changing [line 80](https://github.com/GliozzoJ/pathonet_compression/blob/565f6a04c9fa2ae3911f469ab885fefa65ca5841/compression.py#L80), [117](https://github.com/GliozzoJ/pathonet_compression/blob/565f6a04c9fa2ae3911f469ab885fefa65ca5841/compression.py#L117) and [118](https://github.com/GliozzoJ/pathonet_compression/blob/565f6a04c9fa2ae3911f469ab885fefa65ca5841/compression.py#L118) it is possible to chose appropriate optimizer, loss and metric for your problem. As a note, for optimization we noticed better performance when using the same optimizer as the model you want to compress with a slightly lower learning rate, as happens with tranfer learning.
+5. As an example, run the compression with UQ quantization on an network `mynet.hdf5` having both dense and convolutional layers on a dataset in a folder called ``mydata``:
+
+	```
+	python3 compression.py --compression uUQ --net ./original_nets/mynet.hdf5 --data_path ./mydata --output_path ./compressed_models/results --minibatch 8 --clusterfc 256 --clustercnn 128
+	```
+
+	the argument ``--clusterfc`` is the number of groups _k_ for fully-connected layers while ``--clustercnn`` is the number of groups _k_ used to compress convolutional layers. The command ``python3 compression.py --help`` shows the help for the considered function.
+	
+
 
 
 ### References
