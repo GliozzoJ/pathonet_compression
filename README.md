@@ -5,9 +5,11 @@ This repository contains the code to:
 
 - Compress the deep neural network PathoNet [1] using different quantization strategies (i.e. CWS, PWS, UQ, ECSQ) [2];
 
-- Reproduce the experiments comparing the original PathoNet model with our compressed models, which are described in detail in a paper submitted to the journal "Computers in Biology and Medicine" [3];
+- Reproduce the experiments comparing the original PathoNet model with our compressed models, which are described in detail in a paper submitted to the "10th International Conference on Bioinformatics Research and Applications ([ICBRA 2023](http://www.icbra.org/))"[3];
 
 - A Jupyter notebook showing (I) how to create and load compressed models using the "Index Map"  method [4] and (II) how to compute the compression ratios and time ratios for a given quantized network.
+
+- A Jupyter notebook showing how to compute the energy consumption for a given quantized network.
 
 
 Moreover, we provide our best compressed PathoNet models using *k*=256 which can be exploited by an interested user having limited computational resources available.
@@ -234,7 +236,7 @@ An interested user can run the compression framework on an hypothetical network 
 
 [2] Marinò, Giosuè Cataldo, et al. "Compression strategies and space-conscious representations for deep neural networks." 2020 25th International Conference on Pattern Recognition (ICPR). IEEE, 2021.
 
-[3] Gliozzo, Jessica et al. "Compressing Deep Learning Models for Medical Applications in Resource-limited Contexts: A Use Case", Computers in Biology and Medicine (2022) [**submitted**].
+[3] Gliozzo, Jessica et al. "Resource-Limited Automated Ki67 Index Estimation in Breast Cancer", 10th International Conference on Bioinformatics Research and Applications (ICBRA 2023), Barcelona, Spain - September 22-24, 2023 [**submitted**].
 
 [4] Marinò, Giosuè Cataldo, et al. "Compact representations of convolutional neural networks via weight pruning and quantization." arXiv preprint arXiv:2108.12704 (2021).
 
