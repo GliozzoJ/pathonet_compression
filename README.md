@@ -200,6 +200,8 @@ To reproduce our results we provide the following scripts/functions:
 
 4. We also provide a Jupyter notebook `Run_PathoNet_iMap.ipynb` showing how to compute the compression and time ratio for a given quantized network. Moreover, it shows how to create a compressed PathoNet model using the IndexMap method and how to load it.
 
+5. We provide a Jupyter notebook `energy_consumption.ipynb` showing how to compute the energy consumption for a given quantized network. 
+
 ### Compression on a different model and/or dataset
 
 As a matter of fact, the compression strategy we adopted in the use case presented in this repository can be applied to any pre-trained model having convolutional layers and/or dense layers.
