@@ -14,6 +14,11 @@ This repository contains the code to:
 
 Moreover, we provide our best compressed PathoNet models using *k*=256 which can be exploited by an interested user having limited computational resources available.
 
+
+## Acknowledgements
+
+The realization of this repository has been supported by the Italian MUR PRIN project “Multicriteria data structures and algorithms: from compressed to learned indexes, and beyond” (Prot. 2017WR7SHH).
+
 ## Getting started
 
 ### Requirements and installation
