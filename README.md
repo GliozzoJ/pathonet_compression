@@ -241,7 +241,7 @@ An interested user can run the compression framework on an hypothetical network 
 
 [2] Marinò, Giosuè Cataldo, et al. "Compression strategies and space-conscious representations for deep neural networks." 2020 25th International Conference on Pattern Recognition (ICPR). IEEE, 2021.
 
-[3] Gliozzo, Jessica et al. "Resource-Limited Automated Ki67 Index Estimation in Breast Cancer", 10th International Conference on Bioinformatics Research and Applications (ICBRA 2023), Barcelona, Spain - September 22-24, 2023 [**submitted**].
+[3] Gliozzo, Jessica et al. "Resource-Limited Automated Ki67 Index Estimation in Breast Cancer", 10th International Conference on Bioinformatics Research and Applications (ICBRA 2023), Barcelona, Spain - September 22-24, 2023 [**accepted**].
 
 [4] Marinò, Giosuè Cataldo, et al. "Compact representations of convolutional neural networks via weight pruning and quantization." arXiv preprint arXiv:2108.12704 (2021).
 
